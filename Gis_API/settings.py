@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'django',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -76,11 +80,15 @@ WSGI_APPLICATION = 'Gis_API.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'gis_db',
+        'USER': 'postgresql',
+        'PASSWORD': 'hgbDFndkdu76FTgtt3',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
+GDAL_LIBRARY_PATH = r'D:\Programs\Conda\envs\myenv\Lib\site-packages\GDAL-3.6.2-py3.9-win-amd64.egg-info'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
