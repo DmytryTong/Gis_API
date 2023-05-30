@@ -8,4 +8,4 @@ class PlaceSerializer(ModelSerializer):
 
     class Meta:
         model = Place
-        fields = ['id', 'name', 'description', 'geom']
+        fields = ("id", "name", "description", "geom")
