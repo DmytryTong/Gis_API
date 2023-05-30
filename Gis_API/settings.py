@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-(%r4u*9t&-vh#t$4fp+fyik_bzeosuji9m!tx2$9f41zj544a5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -40,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'django',
     'rest_framework',
-
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -57,16 +62,15 @@ ROOT_URLCONF = 'Gis_API.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
@@ -82,13 +86,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gis_db',
-        'USER': 'postgresql',
-        'PASSWORD': 'hgbDFndkdu76FTgtt3',
+        'USER': 'gis_user',
+        'PASSWORD': 'gisuser12345',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-GDAL_LIBRARY_PATH = r'D:\Programs\Conda\envs\myenv\Lib\site-packages\GDAL-3.6.2-py3.9-win-amd64.egg-info'
+GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c'
+GDAL_LIBRARY_PATH = r'C:\OSGeo4W\bin\gdal307'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
